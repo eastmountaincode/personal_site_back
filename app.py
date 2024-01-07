@@ -29,7 +29,7 @@ def ensure_minimum_delay(start_time, delay):
     if elapsed_time < delay:
         eventlet.sleep(delay - elapsed_time)
 
-def emit_with_delay(event, data, start_time, delay=1.3):
+def emit_with_delay(event, data, start_time, delay=1.8):
     ensure_minimum_delay(start_time, delay)
     socketio.emit(event, data)
     return time.time()  # Return the new start time
