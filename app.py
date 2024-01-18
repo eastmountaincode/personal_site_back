@@ -18,7 +18,7 @@ socketio = SocketIO(app, cors_allowed_origins='http://localhost:3000')
 UPLOAD_FOLDER = 'uploads/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['MAX_CONTENT_LENGTH'] = 300 * 1024 * 1024  # 500 MB limit
+app.config['MAX_CONTENT_LENGTH'] = 300 * 1024 * 1024  # 300 MB limit
 
 # Ensure upload folder exists
 if not os.path.exists(UPLOAD_FOLDER):
@@ -167,7 +167,7 @@ def hello_world():
 
 @app.errorhandler(413)
 def request_entity_too_large(error):
-    return jsonify({"error": "File too large"}), 413
+    return jsonify({"error": "File too large (max size 300 MB)"}), 413
 
 if __name__ == '__main__':
     socketio.run(app, port=5001)
