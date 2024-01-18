@@ -1,3 +1,6 @@
+import eventlet
+eventlet.monkey_patch()
+
 from flask import Flask, request, jsonify, send_from_directory
 import os
 from flask_cors import CORS
@@ -5,8 +8,6 @@ from flask_socketio import SocketIO
 import logging
 import threading
 import time
-import eventlet
-eventlet.monkey_patch()
 
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 
@@ -173,4 +174,4 @@ def request_entity_too_large(error):
     return jsonify({"error": "File too large (max size 300 MB)"}), 413
 
 if __name__ == '__main__':
-    socketio.run(app, port=5001)
+    socketio.run(app, host='0.0.0.0', port=5001)
