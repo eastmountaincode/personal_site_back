@@ -12,7 +12,10 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(name)s - %(leve
 
 app = Flask(__name__)
 CORS(app)
-socketio = SocketIO(app, cors_allowed_origins='http://localhost:3000')
+socketio = SocketIO(app, cors_allowed_origins=[
+    "https://celadon-strudel-b171cf.netlify.app",
+    "https://andrew-boylan.com"
+    ])
 
 # Configuration
 UPLOAD_FOLDER = 'uploads/'
