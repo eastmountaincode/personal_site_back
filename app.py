@@ -15,7 +15,8 @@ app = Flask(__name__)
 CORS(app)
 socketio = SocketIO(app, cors_allowed_origins=[
     "https://celadon-strudel-b171cf.netlify.app",
-    "https://andrew-boylan.com"
+    "https://andrew-boylan.com",
+    "http://andrew-boylan.com"
     ])
 
 # Configuration
