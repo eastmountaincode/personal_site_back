@@ -128,7 +128,7 @@ def handle_start_processing(data):
         app.logger.info(f"After creating depolarized file at {depolarized_file_path}")
 
         # Emit event with download URL
-        download_url = f"http://{request.host}/download/{depolarized_file_name}"
+        download_url = f"https://api.andrew-boylan.com/download/{depolarized_file_name}"
 
         start_time = emit_with_delay('complete_message', None, start_time)
 
